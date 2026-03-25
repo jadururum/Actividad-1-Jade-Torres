@@ -21,8 +21,8 @@ if cat_elegida in categorias:
 else:
         print("Categoría no válida, se usará 'programación' por defecto")
         lista_elegida=categorias["programación"]
-
-word=random.choice(lista_elegida)
+palabras_distintas=random.sample(lista_elegida,5)
+word=palabras_distintas[0]
 
 while attempts > 0:
 # Mostrar progreso: letras adivinadas y guiones para las que faltan
