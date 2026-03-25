@@ -1,20 +1,29 @@
 import random
-words = [
-"python",
-"programa",
-"variable",
-"funcion",
-"bucle",
-"cadena",
-"entero",
-"lista",
-]
-word = random.choice(words)
+
+categorias={"programación":["python","variable","funcion","lista","bucle"],
+            "países":["argentina","peru","colombia","chile","mexico"],
+            "frutas":["manzana","banana","naranja","pera","frutilla"]}
+
 guessed = []
 attempts = 6
+points=0
+
 print("¡Bienvenido al Ahorcado!")
 print()
-points=0
+print("Elige una categoría: ")
+for cat in categorias:
+   print(f"-{cat}")
+
+cat_elegida=input("Escribe la categoría elegida: ").lower()
+
+if cat_elegida in categorias:
+        lista_elegida=categorias[cat_elegida]
+else:
+        print("Categoría no válida, se usará 'programación' por defecto")
+        lista_elegida=categorias["programación"]
+
+word=random.choice(lista_elegida)
+
 while attempts > 0:
 # Mostrar progreso: letras adivinadas y guiones para las que faltan
  progress = ""
@@ -48,5 +57,5 @@ while attempts > 0:
  print()
 else:
  print(f"¡Perdiste! La palabra era: {word}")
- score=0
+ points=0
 print(f"Puntaje final: {points}")
